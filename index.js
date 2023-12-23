@@ -96,10 +96,18 @@ var total = 0;
 
 for(var i = 0; i <finances.length; i++){
   total += finances[i][1];
-}
-
-var avechange = 0;
-avechange = (total / no_of_months - 1); 
+} 
 
 console.log('Total: $' + total);
-console.log('average change is:' + avechange);
+
+var change = 0;
+
+  for(var i = 1; i <finances.length; i++){
+    var no_2  = (finances[i][1]); 
+    var no_1 = (finances[i-1][1]);
+    var diff = (no_2) -( no_1);
+    change  += diff;
+  } 
+  
+var average = (change/(no_of_months-1));
+console.log('Average Change:' + average);
