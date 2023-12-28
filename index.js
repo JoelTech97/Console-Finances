@@ -111,3 +111,35 @@ var change = 0;
   
 var average = (change/(no_of_months-1));
 console.log('Average Change:' + average);
+
+var greatest_month = '';
+var greatest_increase = 0;
+
+for (var i=1; i < finances.length;i++){
+var month = finances[i][0];
+ var current_amount = (finances[i][1]);
+ var previous_amount = (finances[i-1][1]);
+ var profit = current_amount - previous_amount;
+ if (profit > greatest_increase){
+  greatest_increase = profit;
+  greatest_month = month;
+ }
+}
+
+console.log('Greatest Increase in Profits/Losses:' + greatest_month +  ' ($' +greatest_increase + ')');
+
+var greatest_month = '';
+var greatest_decrease = 0;
+
+for (var i=1; i < finances.length;i++){
+ var month = finances[i][0];
+ var current_month = (finances[i][1]);
+ var previous_month = (finances[i-1][1]);
+ var loss = current_month - previous_month;
+ if (loss < greatest_decrease){
+  greatest_decrease = loss;
+  greatest_month = month;
+ }
+}
+
+console.log(' Greatest Decrease in Profits/Losses:' +greatest_month + ' ($' + greatest_decrease + ')' );
