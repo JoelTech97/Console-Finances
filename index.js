@@ -86,35 +86,31 @@ var finances = [
   ['Jan-2017', 138230],
   ['Feb-2017', 671099],
 ];
-// new variable which calculates the number of months that this takes place over
-// variable which is able to store the number of months 
+// calculate the total number of months in the dataset
 var no_of_months = finances.length;
-// storing the number of months into the console
 console.log('Total Months: ' + no_of_months);
 
+// calculate the net total profit/ losses over the entire period
 var total = 0;
-
 for(var i = 0; i <finances.length; i++){
   total += finances[i][1];
 } 
-
 console.log('Total: $' + total);
 
+// calculate the average of changes in profit/losses over the entire period
 var change = 0;
-
   for(var i = 1; i <finances.length; i++){
     var no_2  = (finances[i][1]); 
     var no_1 = (finances[i-1][1]);
     var diff = (no_2) -( no_1);
     change  += diff;
   } 
-  
 var average = (change/(no_of_months-1));
 console.log('Average Change:' + average);
 
+// find the greatest increase in profit/losses and the date it occured
 var greatest_month = '';
 var greatest_increase = 0;
-
 for (var i=1; i < finances.length;i++){
 var month = finances[i][0];
  var current_amount = (finances[i][1]);
@@ -125,12 +121,11 @@ var month = finances[i][0];
   greatest_month = month;
  }
 }
-
 console.log('Greatest Increase in Profits/Losses:' + greatest_month +  ' ($' +greatest_increase + ')');
 
+// find the greatest decrease in profit/losses and the date it occured
 var greatest_month = '';
 var greatest_decrease = 0;
-
 for (var i=1; i < finances.length;i++){
  var month = finances[i][0];
  var current_month = (finances[i][1]);
@@ -141,5 +136,4 @@ for (var i=1; i < finances.length;i++){
   greatest_month = month;
  }
 }
-
 console.log(' Greatest Decrease in Profits/Losses:' +greatest_month + ' ($' + greatest_decrease + ')' );
